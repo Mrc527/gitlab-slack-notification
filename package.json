@@ -1,0 +1,17 @@
+{
+  "name": "gitlab-updates",
+  "version": "1.0.0",
+  "description": "Script for generating slack updates when a Merge Request on the default branch is accepted.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["gitlab","slack","notification"],
+  "author": "Marco Visin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "process": "^0.11.10",
+    "request": "^2.88.2"
+  }
+}
