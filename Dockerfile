@@ -5,7 +5,8 @@ WORKDIR /app
 
 ENV PATH /app/node_modules/.bin:$PATH
 
-COPY package.json package-lock.json /app/
+COPY package.json /app/
+#COPY package.json package-lock.json /app/
 RUN npm install
 
 # Or if you're using Yarn
