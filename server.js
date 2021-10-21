@@ -68,7 +68,7 @@ app.post('/', function (req, res) {
                                     "type": "header",
                                     "text": {
                                         "type": "plain_text",
-                                        "text": "NEW UPDATE",
+                                        "text": "📣 NEW UPDATE 📣",
                                         "emoji": true
                                     }
                                 },
