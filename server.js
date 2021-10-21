@@ -98,7 +98,9 @@ app.post('/', function (req, res) {
                     }
                 },
                 function (error, response, body) {
-                    console.log(body);
+                    if(debug) {
+                        console.log("Response from Slack:" + JSON.stringify(response) + " --> " + JSON.stringify(body))
+                    }
                 })
         }
     }
