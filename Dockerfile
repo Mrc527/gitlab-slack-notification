@@ -15,4 +15,4 @@ RUN npm install
 
 COPY . /app/
 
-CMD ["npm", "start"]
+CMD ["npm", "start", "--hook=$HOOK"]
