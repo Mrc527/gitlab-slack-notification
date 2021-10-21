@@ -23,6 +23,10 @@ if (!argv("hook") && !process.env.HOOK) {
 if (argv("v") || process.env.V) {
     debug = true
 }
+if(debug)
+{
+    console.log(`Using Slack Hook: https://hooks.slack.com/services/${argv("hook")}`)
+}
 
 app.post('/', function (req, res) {
     if (debug) {
