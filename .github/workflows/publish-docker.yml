@@ -16,7 +16,7 @@ jobs:
           DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
           DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
         run: |
-          docker login -u DOCKER_USERNAME -p DOCKER_PASSWORD
+          docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag mrc527/gitlab-slack-notification:$(date +%s)
 
