@@ -8,18 +8,19 @@ app.use(express.json())
 let debug = false
 
 const argv = key => {
+    if(process.env[key]) return process.env[key]
     if (process.argv.includes(`--${key}`)) return true
     const value = process.argv.find(element => element.startsWith(`--${key}=`))
     if (!value) return null
     return value.replace(`--${key}=`, '')
 }
 
-if (!argv("hook")) {
+if (!argv("hook") && !process.env.HOOK) {
     console.log("Usage: node sever.js --hook AAAA/BBBB/CCC [-v]")
     exit(1)
 }
 
-if (argv("v")) {
+if (argv("v") || process.env.V) {
     debug = true
 }
 
