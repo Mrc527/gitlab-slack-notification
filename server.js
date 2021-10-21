@@ -15,8 +15,8 @@ const argv = key => {
     return value.replace(`--${key}=`, '')
 }
 
-if (!argv("hook") && !process.env.HOOK) {
-    console.log("Usage: node sever.js --hook AAAA/BBBB/CCC [-v]")
+if (!argv("HOOK") && !process.env.HOOK) {
+    console.log("Usage: node sever.js --HOOK AAAA/BBBB/CCC [-v]")
     exit(1)
 }
 
@@ -25,7 +25,7 @@ if (argv("v") || process.env.V) {
 }
 if(debug)
 {
-    console.log(`Using Slack Hook: https://hooks.slack.com/services/${argv("hook")}`)
+    console.log(`Using Slack Hook: https://hooks.slack.com/services/${argv("HOOK")}`)
 }
 
 app.post('/', function (req, res) {
@@ -54,12 +54,12 @@ app.post('/', function (req, res) {
             console.log("Target:" + req.body?.object_attributes.target_branch)
         }
 
-        if (req.body?.object_attributes.state === 'merged' && req.body?.object_attributes.target_branch === 'master') {
+        if ((req.body?.object_attributes.state === 'merged' && req.body?.object_attributes.target_branch === 'master') || true) {
             const result = `*NEW UPDATE*\nService *${req.body?.project?.name}* has been updated!\n\n${req.body?.object_attributes.title}\n\n${req.body?.object_attributes.description}`
 
             request.post(
                 {
-                    url: `https://hooks.slack.com/services/${argv("hook")}`,
+                    url: `https://hooks.slack.com/services/${argv("HOOK")}`,
                     json: {
                         text: result,
                         blocks:
