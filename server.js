@@ -54,7 +54,7 @@ app.post('/', function (req, res) {
             console.log("Target:" + req.body?.object_attributes.target_branch)
         }
 
-        if ((req.body?.object_attributes.state === 'merged' && req.body?.object_attributes.target_branch === 'master') || true) {
+        if (req.body?.object_attributes.state === 'merged' && req.body?.object_attributes.target_branch === 'master') {
             const result = `*NEW UPDATE*\nService *${req.body?.project?.name}* has been updated!\n\n${req.body?.object_attributes.title}\n\n${req.body?.object_attributes.description}`
 
             request.post(
