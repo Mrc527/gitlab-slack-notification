@@ -8,7 +8,7 @@ app.use(express.json())
 let debug = false
 
 const argv = key => {
-    if(process.env[key]) return process.env[key]
+    if(process.env[key]) return process.env[key.toUpperCase()]
     if (process.argv.includes(`--${key}`)) return true
     const value = process.argv.find(element => element.startsWith(`--${key}=`))
     if (!value) return null
