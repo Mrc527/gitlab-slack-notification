@@ -92,7 +92,7 @@ app.post('/', function (req, res) {
                                     "type": "section",
                                     "text": {
                                         "type": "mrkdwn",
-                                        "text": `*${req.body?.object_attributes.title}:*\n${req.body?.object_attributes.description}`
+                                        "text": `*${req.body?.object_attributes.title}*\n${req.body?.object_attributes.description}`
                                     }
                                 }
                             ]
